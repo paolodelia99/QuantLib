@@ -32,7 +32,7 @@
 #include <ql/cashflows/coupon.hpp>
 #include <ql/patterns/visitor.hpp>
 #include <ql/patterns/lazyobject.hpp>
-#include <ql/time/daycounter.hpp>
+#include <ql/time/all.hpp>
 #include <ql/handle.hpp>
 
 namespace QuantLib {
@@ -56,7 +56,8 @@ namespace QuantLib {
                            const Date& refPeriodEnd = Date(),
                            DayCounter dayCounter = DayCounter(),
                            bool isInArrears = false,
-                           const Date& exCouponDate = Date());
+                           const Date& exCouponDate = Date(),
+                           BusinessDayConvention bdc = Preceding);
 
         //! \name LazyObject interface
         //@{
@@ -115,6 +116,7 @@ namespace QuantLib {
         bool isInArrears_;
         ext::shared_ptr<FloatingRateCouponPricer> pricer_;
         mutable Real rate_;
+        BusinessDayConvention businessDayConvention_;
     };
 
     // inline definitions
