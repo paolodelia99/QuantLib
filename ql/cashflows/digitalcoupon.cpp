@@ -47,7 +47,9 @@ namespace QuantLib {
                          underlying->referencePeriodStart(),
                          underlying->referencePeriodEnd(),
                          underlying->dayCounter(),
-                         underlying->isInArrears()),
+                         underlying->isInArrears(),
+                         underlying->exCouponDate(),
+                         underlying->businessDayConvention()),
       underlying_(underlying), isCallATMIncluded_(isCallATMIncluded),
       isPutATMIncluded_(isPutATMIncluded), nakedOption_(nakedOption) {
 

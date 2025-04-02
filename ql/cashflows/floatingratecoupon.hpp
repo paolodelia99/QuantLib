@@ -96,6 +96,8 @@ namespace QuantLib {
         virtual Rate adjustedFixing() const;
         //! whether or not the coupon fixes in arrears
         bool isInArrears() const { return isInArrears_; }
+        //! fixing business day convention
+        BusinessDayConvention businessDayConvention() const {return businessDayConvention_; }
         //@}
 
         //! \name Visitability
