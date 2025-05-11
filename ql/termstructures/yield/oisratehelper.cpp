@@ -57,7 +57,7 @@ namespace QuantLib {
         Frequency paymentFrequency,
         Calendar paymentCalendar,
         const Period& forwardStart,
-        const std::variant<Spread, Handle<Quote>> overnightSpread,
+        const std::variant<Spread, Handle<Quote>>& overnightSpread,
         Pillar::Choice pillar,
         Date customPillarDate,
         RateAveraging::Type averagingMethod,
@@ -91,7 +91,7 @@ namespace QuantLib {
         BusinessDayConvention paymentConvention,
         Frequency paymentFrequency,
         Calendar paymentCalendar,
-        const std::variant<Spread, Handle<Quote>> overnightSpread,
+        const std::variant<Spread, Handle<Quote>>& overnightSpread,
         Pillar::Choice pillar,
         Date customPillarDate,
         RateAveraging::Type averagingMethod,
@@ -280,6 +280,6 @@ namespace QuantLib {
                                            const Calendar& fixedCalendar)
     : DatedOISRateHelper(startDate, endDate, fixedRate, overnightIndex, std::move(discount), telescopicValueDates,
                          averagingMethod, paymentLag, paymentConvention, paymentFrequency, paymentCalendar,
-                         std::move(overnightSpread), endOfMonth, fixedPaymentFrequency, fixedCalendar) {}
+                         overnightSpread, endOfMonth, fixedPaymentFrequency, fixedCalendar) {}
 
 }
