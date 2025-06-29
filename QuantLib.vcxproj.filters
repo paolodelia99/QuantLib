@@ -4452,6 +4452,9 @@
     <ClInclude Include="ql\indexes\equityindex.hpp">
       <Filter>indexes</Filter>
     </ClInclude>
+    <ClInclude Include="ql\indexes\fxindex.hpp">
+      <Filter>indexes</Filter>
+    </ClInclude>
     <ClInclude Include="ql\instruments\equitytotalreturnswap.hpp">
       <Filter>instruments</Filter>
     </ClInclude>
@@ -7250,6 +7253,9 @@
       <Filter>methods\finitedifferences\utilities</Filter>
     </ClCompile>
     <ClCompile Include="ql\indexes\equityindex.cpp">
+      <Filter>indexes</Filter>
+    </ClCompile>
+    <ClCompile Include="ql\indexes\fxindex.cpp">
       <Filter>indexes</Filter>
     </ClCompile>
     <ClCompile Include="ql\instruments\equitytotalreturnswap.cpp">

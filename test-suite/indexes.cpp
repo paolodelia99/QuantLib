@@ -19,12 +19,17 @@
 
 #include "toplevelfixture.hpp"
 #include "utilities.hpp"
+#include <ql/currencies/all.hpp>
 #include <ql/indexes/bmaindex.hpp>
+#include <ql/indexes/fxindex.hpp>
 #include <ql/indexes/ibor/custom.hpp>
 #include <ql/indexes/ibor/euribor.hpp>
+#include <ql/quotes/simplequote.hpp>
 #include <ql/time/calendars/bespokecalendar.hpp>
 #include <ql/time/calendars/target.hpp>
 #include <ql/time/daycounters/actual360.hpp>
+#include <ql/time/daycounters/actualactual.hpp>
+#include <ql/termstructures/yield/flatforward.hpp>
 #include <ql/utilities/dataformatters.hpp>
 #include <boost/algorithm/string/case_conv.hpp>
 
@@ -193,6 +198,47 @@ BOOST_AUTO_TEST_CASE(testCustomIborIndex) {
         BOOST_CHECK_EQUAL(index->maturityDate(Date(28, February, 2025)),
                           Date(31, May, 2025));
     }
+}
+
+BOOST_AUTO_TEST_CASE(testFxIndex) {
+    BOOST_TEST_MESSAGE("Testing FxIndex...");
+    Date today = Date(27, June, 2025);
+
+    QuantLib::Settings::instance().evaluationDate() = today;
+
+    auto usdJpySpot = makeQuoteHandle(144.85);
+    auto eurUsdSpot = makeQuoteHandle(1.17);
+    auto eurJpySpot = makeQuoteHandle(eurUsdSpot->value() * usdJpySpot->value());
+    auto dc = Actual360();
+    Calendar cal = TARGET();
+    Handle<YieldTermStructure> usdYTS(ext::shared_ptr<YieldTermStructure>(new FlatForward(0, cal, 0.005, dc))); // USD
+    Handle<YieldTermStructure> jpyYTS(ext::shared_ptr<YieldTermStructure>(new FlatForward(0, cal, 0.03, dc)));  // JPY
+    Handle<YieldTermStructure> eurYTS(ext::shared_ptr<YieldTermStructure>(new FlatForward(0, cal, 0.01, dc)));  // EUR
+
+    auto usdJpyFxIndex =
+        ext::make_shared<FxIndex>("FX", 0, USDCurrency(), JPYCurrency(), TARGET(), usdJpySpot, usdYTS, jpyYTS);
+    auto eurUsdFxIndex =
+        ext::make_shared<FxIndex>("FX", 0, EURCurrency(), USDCurrency(), TARGET(), eurUsdSpot, eurYTS, usdYTS);
+    auto eurJpyIndex = 
+        ext::make_shared<FxIndex>("FX", 0, EURCurrency(), JPYCurrency(), TARGET(), eurJpySpot, eurYTS, jpyYTS);
+    auto usdJypFxIndexName = usdJpyFxIndex->name();
+
+    Real usdJpyPastFixing = 144.70;
+    Real eurUsdPastFixing = 1.17;
+    Date pastFixingDate = cal.advance(today, Period(-1, Days)); 
+    usdJpyFxIndex->addFixing(pastFixingDate, usdJpyPastFixing);
+    eurUsdFxIndex->addFixing(pastFixingDate, eurUsdPastFixing);
+
+    Date valueDate = usdJpyFxIndex->valueDate(today);
+    Date fixingDate = usdJpyFxIndex->fixingDate(valueDate);
+    Date futureDate = cal.advance(today, Period(3, Months));
+
+    BOOST_CHECK_EQUAL(usdJpyFxIndex->name(), "FX USD/JPY");
+    BOOST_CHECK_EQUAL(fixingDate, today);
+    BOOST_CHECK_EQUAL(usdJpyFxIndex->pastFixing(pastFixingDate), usdJpyFxIndex->fixing(pastFixingDate));
+    BOOST_CHECK_EQUAL(usdJpyFxIndex->forecastFixing(futureDate), usdJpyFxIndex->fixing(futureDate));
+    // Check if triangulation works
+    BOOST_CHECK_CLOSE(eurJpyIndex->pastFixing(pastFixingDate), eurUsdPastFixing * usdJpyPastFixing, 1e-8);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
