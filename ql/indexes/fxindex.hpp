@@ -76,7 +76,6 @@ private:
 };
 
 //! FX Index
-/*! \ingroup indexes */
 class FxIndex : public Index {
 public:
     //! \name Constructors
