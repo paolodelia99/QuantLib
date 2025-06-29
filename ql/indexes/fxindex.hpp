@@ -20,7 +20,6 @@
 
 /*! \file fxindex.hpp
     \brief FX index class
-        \ingroup indexes
 */
 
 #ifndef quantlib_fxindex_hpp
@@ -80,22 +79,46 @@ private:
 /*! \ingroup indexes */
 class FxIndex : public Index {
 public:
-    /*! familyName may be e.g. ECB
-        fixingDays determine the spot date of the currency pair
-        source is the asset or foreign currency
-        target is the numeraire or domestic currency
-        fixingCalendar is the calendar defining good days for the pair
-        this class uses the exchange rate manager to retrieve spot values
-        fxSpot is the fx rate settled at today + fixingDays */
+    //! \name Constructors
+    //@{
+    /*!
+        Constructs an FX index for a currency pair, allowing for spot and forward FX rate calculations,
+        historical fixings, and triangulation logic.
+
+        \param familyName The name of the FX index family (e.g., "ECB", "FX").
+        \param fixingDays The number of settlement days for the FX spot (determines the spot date).
+        \param source The source (asset or foreign) currency of the pair.
+        \param target The target (numeraire or domestic) currency of the pair.
+        \param fixingCalendar The calendar defining valid fixing dates for the currency pair.
+        \param sourceYts (Optional) The yield term structure for the source currency, used for forward FX calculations.
+        \param targetYts (Optional) The yield term structure for the target currency, used for forward FX calculations.
+        \param fixingTriangulation (Optional) If true, enables triangulation logic for historical fixings.
+        \param fxSpot (Optional, second constructor only) The spot FX rate as a Quote handle, settled at today + fixingDays.
+    */
     FxIndex(const std::string& familyName, Natural fixingDays, const Currency& source, const Currency& target,
             const Calendar& fixingCalendar, const Handle<YieldTermStructure>& sourceYts = Handle<YieldTermStructure>(),
             const Handle<YieldTermStructure>& targetYts = Handle<YieldTermStructure>(),
             bool fixingTriangulation = false);
+    /*!
+        Constructs an FX index for a currency pair, allowing for spot and forward FX rate calculations,
+        historical fixings, and triangulation logic.
+
+        \param familyName The name of the FX index family (e.g., "ECB", "FX").
+        \param fixingDays The number of settlement days for the FX spot (determines the spot date).
+        \param source The source (asset or foreign) currency of the pair.
+        \param target The target (numeraire or domestic) currency of the pair.
+        \param fixingCalendar The calendar defining valid fixing dates for the currency pair.
+        \param fxSpot The spot FX rate as a Quote handle, settled at today + fixingDays.
+        \param sourceYts (Optional) The yield term structure for the source currency, used for forward FX calculations.
+        \param targetYts (Optional) The yield term structure for the target currency, used for forward FX calculations.
+        \param fixingTriangulation (Optional) If true, enables triangulation logic for historical fixings.
+    */
     FxIndex(const std::string& familyName, Natural fixingDays, const Currency& source, const Currency& target,
             const Calendar& fixingCalendar, const Handle<Quote> fxSpot,
             const Handle<YieldTermStructure>& sourceYts = Handle<YieldTermStructure>(),
             const Handle<YieldTermStructure>& targetYts = Handle<YieldTermStructure>(),
             bool fixingTriangulation = true);
+    //@}
     //! \name Index interface
     //@{
     std::string name() const override;
