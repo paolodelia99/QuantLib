@@ -19,6 +19,7 @@ set(QL_SOURCES
     cashflows/equitycashflow.cpp
     cashflows/fixedratecoupon.cpp
     cashflows/floatingratecoupon.cpp
+    cashflows/fxlinkedcashflow.cpp
     cashflows/iborcoupon.cpp
     cashflows/indexedcashflow.cpp
     cashflows/inflationcoupon.cpp
@@ -970,6 +971,7 @@ set(QL_HEADERS
     cashflows/equitycashflow.hpp
     cashflows/fixedratecoupon.hpp
     cashflows/floatingratecoupon.hpp
+    cashflows/fxlinkedcashflow.hpp
     cashflows/iborcoupon.hpp
     cashflows/indexedcashflow.hpp
     cashflows/inflationcoupon.hpp

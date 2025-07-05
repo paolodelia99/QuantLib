@@ -540,6 +540,9 @@
     <ClInclude Include="ql\cashflows\floatingratecoupon.hpp">
       <Filter>cashflows</Filter>
     </ClInclude>
+    <ClInclude Include="ql\cashflows\fxlinkedcashflow.hpp">
+      <Filter>cashflows</Filter>
+    </ClInclude>
     <ClInclude Include="ql\cashflows\iborcoupon.hpp">
       <Filter>cashflows</Filter>
     </ClInclude>
@@ -4578,6 +4581,9 @@
       <Filter>cashflows</Filter>
     </ClCompile>
     <ClCompile Include="ql\cashflows\floatingratecoupon.cpp">
+      <Filter>cashflows</Filter>
+    </ClCompile>
+    <ClCompile Include="ql\cashflows\fxlinkedcashflow.cpp">
       <Filter>cashflows</Filter>
     </ClCompile>
     <ClCompile Include="ql\cashflows\iborcoupon.cpp">

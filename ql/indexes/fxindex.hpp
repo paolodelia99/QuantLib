@@ -92,7 +92,6 @@ public:
         \param sourceYts (Optional) The yield term structure for the source currency, used for forward FX calculations.
         \param targetYts (Optional) The yield term structure for the target currency, used for forward FX calculations.
         \param fixingTriangulation (Optional) If true, enables triangulation logic for historical fixings.
-        \param fxSpot (Optional, second constructor only) The spot FX rate as a Quote handle, settled at today + fixingDays.
     */
     FxIndex(const std::string& familyName, Natural fixingDays, const Currency& source, const Currency& target,
             const Calendar& fixingCalendar, const Handle<YieldTermStructure>& sourceYts = Handle<YieldTermStructure>(),
