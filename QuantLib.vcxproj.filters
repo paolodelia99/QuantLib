@@ -537,6 +537,9 @@
     <ClInclude Include="ql\cashflows\fixedratecoupon.hpp">
       <Filter>cashflows</Filter>
     </ClInclude>
+    <ClInclude Include="ql\cashflows\floatingratefxlinkednotionalcoupon.hpp">
+      <Filter>cashflows</Filter>
+    </ClInclude>
     <ClInclude Include="ql\cashflows\floatingratecoupon.hpp">
       <Filter>cashflows</Filter>
     </ClInclude>

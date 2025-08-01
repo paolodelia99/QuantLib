@@ -971,6 +971,7 @@ set(QL_HEADERS
     cashflows/equitycashflow.hpp
     cashflows/fixedratecoupon.hpp
     cashflows/floatingratecoupon.hpp
+    cashflows/floatingratefxlinkednotionalcoupon.hpp
     cashflows/fxlinkedcashflow.hpp
     cashflows/iborcoupon.hpp
     cashflows/indexedcashflow.hpp

@@ -21,8 +21,6 @@
 
 /*! \file ql/cashflows/fxlinkedcashflow.hpp
     \brief An FX linked cashflow
-
-        \ingroup cashflows
 */
 
 #ifndef quantlib_fx_linked_cashflow_hpp
@@ -97,8 +95,6 @@ protected:
  * converted at. The name of the index is a parameter to the constructor.
  *
  * This is not a lazy object.
-
-     \ingroup cashflows
  */
 class FXLinkedCashFlow : public CashFlow, public FXLinked {
 public:
@@ -154,8 +150,6 @@ inline void FXLinkedCashFlow::accept(AcyclicVisitor& v) {
  * arithmetic average across observation dates.
  *
  * This is not a lazy object.
-
- \ingroup cashflows
  */
 class AverageFXLinkedCashFlow : public CashFlow, public AverageFXLinked {
 public:

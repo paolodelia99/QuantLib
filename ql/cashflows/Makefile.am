@@ -23,6 +23,7 @@ this_include_HEADERS = \
     equitycashflow.hpp \
     fixedratecoupon.hpp \
     floatingratecoupon.hpp \
+    floatingratefxlinkednotionalcoupon.hpp \
     fxlinkedcashflow.hpp \
     iborcoupon.hpp \
     indexedcashflow.hpp \
