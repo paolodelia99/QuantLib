@@ -20,6 +20,8 @@
 #include <ql/cashflows/equitycashflow.hpp>
 #include <ql/cashflows/fixedratecoupon.hpp>
 #include <ql/cashflows/floatingratecoupon.hpp>
+#include <ql/cashflows/floatingratefxlinkednotionalcoupon.hpp>
+#include <ql/cashflows/fxlinkedcashflow.hpp>
 #include <ql/cashflows/iborcoupon.hpp>
 #include <ql/cashflows/indexedcashflow.hpp>
 #include <ql/cashflows/inflationcoupon.hpp>
