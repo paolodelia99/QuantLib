@@ -63,6 +63,27 @@
       }
     },
     {
+      "name": "linux-nvcpp-base",
+      "hidden": true,
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      },
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "nvc++"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": {
+          "intelliSenseMode": "linux-gcc-x64",
+          "hostOS": [
+            "Linux"
+          ]
+        }
+      }
+    },
+    {
       "name": "linux-gcc-base",
       "hidden": true,
       "inherits": "linux-base",
@@ -353,6 +374,57 @@
           "apple-arm64-base",
           "ninja",
           "_relwithdebinfo"
+      ]
+    },
+    {
+      "name": "linux-nvcpp-debug",
+      "description": "Linux x86_64 with NVIDIA nvc++ compiler (Debug)",
+      "inherits": [
+        "linux-nvcpp-base",
+        "make",
+        "_debug"
+      ]
+    },
+    {
+      "name": "linux-nvcpp-release",
+      "description": "Linux x86_64 with NVIDIA nvc++ compiler (Release)",
+      "inherits": [
+        "linux-nvcpp-base",
+        "make",
+        "_release"
+      ]
+    },
+    {
+      "name": "linux-nvcpp-relwithdebinfo",
+      "description": "Linux x86_64 with NVIDIA nvc++ compiler (RelWithDebInfo)",
+      "inherits": [
+        "linux-nvcpp-base",
+        "make",
+        "_relwithdebinfo"
+      ]
+    },
+    {
+      "name": "linux-nvcpp-ninja-debug",
+      "description": "Linux x86_64 with NVIDIA nvc++ compiler using Ninja (Debug)",
+      "inherits": [
+        "ninja",
+        "linux-nvcpp-debug"
+      ]
+    },
+    {
+      "name": "linux-nvcpp-ninja-release",
+      "description": "Linux x86_64 with NVIDIA nvc++ compiler using Ninja (Release)",
+      "inherits": [
+        "ninja",
+        "linux-nvcpp-release"
+      ]
+    },
+    {
+      "name": "linux-nvcpp-ninja-relwithdebinfo",
+      "description": "Linux x86_64 with NVIDIA nvc++ compiler using Ninja (RelWithDebInfo)",
+      "inherits": [
+        "ninja",
+        "linux-nvcpp-relwithdebinfo"
       ]
     }
   ]
