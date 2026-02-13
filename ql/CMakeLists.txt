@@ -834,6 +834,7 @@ set(QL_SOURCES
     termstructures/volatility/equityfx/blackvariancesurface.cpp
     termstructures/volatility/equityfx/blackvoltermstructure.cpp
     termstructures/volatility/equityfx/fixedlocalvolsurface.cpp
+    termstructures/volatility/equityfx/fxvannavolgasmilesection.cpp
     termstructures/volatility/equityfx/gridmodellocalvolsurface.cpp
     termstructures/volatility/equityfx/hestonblackvolsurface.cpp
     termstructures/volatility/equityfx/localvolsurface.cpp
@@ -2096,6 +2097,8 @@ set(QL_HEADERS
     termstructures/volatility/equityfx/blackvariancesurface.hpp
     termstructures/volatility/equityfx/blackvoltermstructure.hpp
     termstructures/volatility/equityfx/fixedlocalvolsurface.hpp
+    termstructures/volatility/equityfx/fxsmilesection.hpp
+    termstructures/volatility/equityfx/fxvannavolgasmilesection.hpp
     termstructures/volatility/equityfx/gridmodellocalvolsurface.hpp
     termstructures/volatility/equityfx/hestonblackvolsurface.hpp
     termstructures/volatility/equityfx/impliedvoltermstructure.hpp

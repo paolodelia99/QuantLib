@@ -161,6 +161,9 @@
     <ClCompile Include="functions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fxvolsmile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="fastfouriertransform.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

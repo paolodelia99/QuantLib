@@ -12,6 +12,8 @@ this_include_HEADERS = \
     blackvariancesurface.hpp \
     blackvoltermstructure.hpp \
     fixedlocalvolsurface.hpp \
+    fxsmilesection.hpp \
+    fxvannavolgasmilesection.hpp \
     gridmodellocalvolsurface.hpp \
     hestonblackvolsurface.hpp \
     impliedvoltermstructure.hpp \
@@ -29,6 +31,7 @@ cpp_files = \
     blackvariancesurface.cpp \
     blackvoltermstructure.cpp \
     fixedlocalvolsurface.cpp \
+    fxvannavolgasmilesection.cpp \
     gridmodellocalvolsurface.cpp \
     hestonblackvolsurface.cpp \
     localvolsurface.cpp \
