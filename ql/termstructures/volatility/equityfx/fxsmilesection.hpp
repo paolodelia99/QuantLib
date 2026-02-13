@@ -22,8 +22,8 @@
     \brief FX smile section assuming a strike/volatility space
 */
 
-#ifndef quantext_fx_smile_section_hpp
-#define quantext_fx_smile_section_hpp
+#ifndef quantlib_fx_smile_section_hpp
+#define quantlib_fx_smile_section_hpp
 
 #include <ql/types.hpp>
 #include <ql/termstructures/volatility/smilesection.hpp>

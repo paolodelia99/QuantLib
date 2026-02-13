@@ -21,8 +21,8 @@
     \brief FX smile section assuming a strike/volatility space using vanna volga method
 */
 
-#ifndef quantext_fx_vanna_volga_smile_section_hpp
-#define quantext_fx_vanna_volga_smile_section_hpp
+#ifndef quantlib_fx_vanna_volga_smile_section_hpp
+#define quantlib_fx_vanna_volga_smile_section_hpp
 
 #include <ql/experimental/barrieroption/vannavolgainterpolation.hpp>
 #include <ql/pricingengines/blackdeltacalculator.hpp>

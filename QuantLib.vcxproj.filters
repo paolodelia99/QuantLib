@@ -4266,6 +4266,9 @@
     <ClInclude Include="ql\experimental\math\particleswarmoptimization.hpp">
       <Filter>experimental\math</Filter>
     </ClInclude>
+    <ClInclude Include="ql\termstructures\volatility\equityfx\fxblackvolsurface.hpp">
+      <Filter>termstructures\volatility\equityfx</Filter>
+    </ClInclude>
     <ClInclude Include="ql\termstructures\volatility\equityfx\fxsmilesection.hpp">
       <Filter>termstructures\volatility\equityfx</Filter>
     </ClInclude>
@@ -7098,6 +7101,9 @@
     </ClCompile>
     <ClCompile Include="ql\models\shortrate\onefactormodels\markovfunctional.cpp">
       <Filter>models\shortrate\onefactormodels</Filter>
+    </ClCompile>
+    <ClCompile Include="ql\termstructures\volatility\equityfx\fxblackvolsurface.cpp">
+      <Filter>termstructures\volatility\equityfx</Filter>
     </ClCompile>
     <ClCompile Include="ql\termstructures\volatility\equityfx\fxvannavolgasmilesection.cpp">
       <Filter>termstructures\volatility\equityfx</Filter>
